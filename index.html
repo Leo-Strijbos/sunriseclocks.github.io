@@ -9,64 +9,132 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
-        body, html {
-          height: 100%;
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background-color: #f64a8a;
-        }
-    
-        .container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          text-align: center;
-        }
-    
-        .hidden {
-          display: none;
-        }
-    
-        .subtitle {
-          font-size: 54px;
-          font-weight: bolder;
-          color: white;
-          margin-top: 20px;
-          text-align: center;
-          width: 80%;
-          margin-bottom: 90px;
-        }
-    
-        .download {
-          width: 70%;
-          max-width: 400px;
-          margin-bottom: 30px;
-          border-style: solid;
-          border-width: 4px;
-          border-color: black;
-          border-radius: 16px;
-        }
-      </style>
+    body,
+    html {
+      height: 100%;
+      padding-top: 60px;
+      padding-bottom: 60px;
+      font-family: Arial, sans-serif;
+      background-color: #f64a8a;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .subtitle {
+      font-size: 54px;
+      font-weight: bolder;
+      color: white;
+      margin-top: 20px;
+      text-align: center;
+      width: 80%;
+      margin-bottom: 90px;
+    }
+
+    .download {
+      width: 70%;
+      max-width: 400px;
+      margin-bottom: 30px;
+      border-style: solid;
+      border-width: 4px;
+      border-color: black;
+      border-radius: 16px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" style="">
     <img src="logo.png" alt="Logo" width="200">
     <p class="subtitle">see who likes you</p>
     <a href="" target="_blank">
       <img src="appstore.svg" alt="Example" class="download">
     </a>
-    <p id="reveal-text" style="cursor: pointer; color: white; text-decoration: underline; font-weight: bold;">report error</p>
+    <p id="reveal-text" style="cursor: pointer; color: white; text-decoration: underline; font-weight: bold;">report
+      error</p>
     <div id="hidden-content" class="hidden">
       <input type="text" style="padding: 12px; border-radius: 8px;" placeholder="report...">
       <button style="padding: 12px; border-radius: 8px; font-weight: bold; background-color: #ffde59;">Submit</button>
     </div>
+    <p id="reveal-privacy" style="cursor: pointer; color: white; text-decoration: underline; font-weight: bold;">privacy
+      policy</p>
+    <p id="privacy-policy" class="hidden"
+      style="cursor: pointer; color: white; width: 80%; max-width: 600px; text-align: left; padding-bottom: 60px;">
+      Privacy Policy for fessup<br><br>
+
+      Effective Date: 07/06/2024<br><br>
+
+      Welcome to fessup! Your privacy is important to us, and we are committed to protecting your personal information.
+      This Privacy Policy outlines how we collect, use, and safeguard your data when you use our social media
+      app.<br><br>
+
+      1. <b>Information We Collect:</b><br>
+      - Personal Information: When you sign up for fessup, we collect your name, email address, and other information
+      you provide.<br>
+      - Usage Data: We automatically collect data about your interactions with the app.<br><br>
+
+      2. <b>How We Use Your Information:</b><br>
+      - To Provide and Improve Our Services: We use your information to operate, maintain, and enhance the features and
+      functionality of fessup.<br>
+      - Communication: We may use your email address to send you updates, newsletters, and other information related to
+      our services.<br>
+      - Personalization: We use the data to personalize your experience and provide tailored content and
+      recommendations.<br><br>
+
+      3. <b>Sharing Your Information:</b><br>
+      - Third-Party Service Providers: We may share your information with third-party service providers who assist us in
+      operating our app, conducting business, or serving our users.<br>
+      - Legal Requirements: We may disclose your information if required to do so by law or in response to valid
+      requests by public authorities.<br><br>
+
+      4. <b>Data Security:</b><br>
+      - We implement reasonable security measures to protect your information from unauthorized access, alteration,
+      disclosure, or destruction. However, no internet transmission is entirely secure, and we cannot guarantee absolute
+      security.<br><br>
+
+      5. <b>Your Choices:</b><br>
+      - You can update your account information and preferences at any time by accessing your account settings.<br>
+      - You can opt-out of receiving promotional communications from us by following the unsubscribe instructions in
+      those communications.<br><br>
+
+      6. <b>Children's Privacy:</b><br>
+      - fessup is not intended for use by children under the age of 13. We do not knowingly collect personal information
+      from children under 13.<br><br>
+
+      7. <b>Changes to This Privacy Policy:</b><br>
+      - We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new
+      Privacy Policy on this page and updating the effective date.<br><br>
+
+      8. <b>Contact Us:</b><br>
+      - If you have any questions or concerns about this Privacy Policy or our data practices, please file a report in
+      the app or at fessup.app.<br><br>
+
+      By using fessup, you agree to the terms of this Privacy Policy. Thank you for trusting us with your information.
+    </p>
   </div>
   <script>
     document.getElementById('reveal-text').addEventListener('click', function () {
       document.getElementById('hidden-content').classList.toggle('hidden');
+      adjustContainerHeight();
     });
+    document.getElementById('reveal-privacy').addEventListener('click', function () {
+      document.getElementById('privacy-policy').classList.toggle('hidden');
+      adjustContainerHeight();
+    });
+
+    function adjustContainerHeight() {
+        const container = document.getElementById('container');
+        container.style.minHeight = container.scrollHeight + 'px';
+    }
   </script>
 </body>
 </html>
